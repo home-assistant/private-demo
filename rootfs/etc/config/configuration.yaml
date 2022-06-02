@@ -1,0 +1,6 @@
+default_config:
+demo:
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.21.2.0/24
