@@ -1,0 +1,42 @@
+name: Update
+
+on:
+  schedule:
+    - cron: '45 9 * * 1-4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  base_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.7
+
+      - name: Current version
+        id: current
+        run: |
+          echo "version=$(head -n 1 Dockerfile | cut -d ':' -f 2)" >> $GITHUB_OUTPUT
+          
+      - name: Available version
+        id: available
+        run: |
+          echo "version=$(curl -sSL https://version.home-assistant.io/beta.json | jq -r '.homeassistant.default')" >> $GITHUB_OUTPUT
+
+      - name: Update Dockerfile
+        if: ${{ steps.current.outputs.version != steps.available.outputs.version }}
+        run: |
+          sed -i 's/${{ steps.current.outputs.version }}/${{ steps.available.outputs.version }}/' Dockerfile
+
+      - name: Create Pull Request
+        if: ${{ steps.current.outputs.version != steps.available.outputs.version }}
+        uses: peter-evans/create-pull-request@v6.1.0
+        with:
+          commit-message: "Update base image to ${{ steps.available.outputs.version }}"
+          title: "Update base image to ${{ steps.available.outputs.version }}"
+          body: "Update base image to ${{ steps.available.outputs.version }}"
+          branch: "update-base-image-${{ steps.available.outputs.version }}"
+          base: "main"
