@@ -35,6 +35,7 @@ jobs:
         if: ${{ steps.current.outputs.version != steps.available.outputs.version }}
         uses: peter-evans/create-pull-request@v6.1.0
         with:
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           commit-message: "Update base image to ${{ steps.available.outputs.version }}"
           title: "Update base image to ${{ steps.available.outputs.version }}"
           body: "Update base image to ${{ steps.available.outputs.version }}"
