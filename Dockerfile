@@ -1,2 +1,2 @@
-FROM ghcr.io/home-assistant/home-assistant:2024.7.4
+FROM ghcr.io/home-assistant/home-assistant:2024.8.0b0
 COPY rootfs /
