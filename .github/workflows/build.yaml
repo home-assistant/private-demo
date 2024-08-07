@@ -22,7 +22,7 @@ jobs:
     outputs:
       target: ${{ steps.target.outputs.version }}
       tag: ${{ steps.version.outputs.string }}
-      new_image: ${{ steps.existing_image.outcome == 'failure' }}
+      new_image: ${{ github.event_name == 'pull_request' || steps.existing_image.outcome == 'failure' }}
     steps:
       - uses: actions/checkout@v4.1.7
 
@@ -38,6 +38,7 @@ jobs:
 
       - name: Check if image exist
         id: existing_image
+        if: ${{ github.event_name != 'pull_request' }}
         continue-on-error: true
         run: |
           docker pull ghcr.io/${{ github.repository_owner }}/private-demo:${{ steps.version.outputs.string }}
