@@ -1,2 +1,3 @@
-FROM ghcr.io/home-assistant/home-assistant:2024.8.0b7
+ARG TARGET_VERSION=stable
+FROM ghcr.io/home-assistant/home-assistant:$TARGET_VERSION
 COPY rootfs /
