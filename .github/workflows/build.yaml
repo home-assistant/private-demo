@@ -24,7 +24,7 @@ jobs:
       tag: ${{ steps.version.outputs.string }}
       new_image: ${{ github.event_name == 'pull_request' || steps.existing_image.outcome == 'failure' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Target version
         id: target
@@ -51,7 +51,7 @@ jobs:
     if: ${{ needs.init.outputs.new_image }}
     environment: ${{ github.event_name != 'pull_request' && 'build' || '' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3.5.0
