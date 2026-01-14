@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "minor_version": 5,
+  "key": "core.config_entries",
+  "data": {
+    "entries": [
+      {"created_at":"2025-12-22T11:57:03.533385+00:00","data":{"board":"OVA","channel":"stable","image":"default","name":"","source":"container","version_source":"Docker Hub"},"disabled_by":null,"discovery_keys":{},"domain":"version","entry_id":"01KD2YQ35DDAEAJ2QFWDPMRSHF","minor_version":1,"modified_at":"2025-12-22T11:57:03.533395+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"user","subentries":[],"title":"Docker Hub","unique_id":null,"version":1},
+      {"created_at":"2025-12-22T12:01:15.901548+00:00","data":{"board":"OVA","channel":"stable","image":"default","name":"","source":"local","version_source":"Local installation"},"disabled_by":null,"discovery_keys":{},"domain":"version","entry_id":"01KD2YYSKX74B2R2FPTGHTH3MA","minor_version":1,"modified_at":"2025-12-22T12:01:15.901565+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"user","subentries":[],"title":"Current Version","unique_id":null,"version":1}
+    ]
+  }
+}

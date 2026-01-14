@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_dashboards",
+  "data": {
+    "items": [
+      {
+        "id": "dashboard_home",
+        "show_in_sidebar": true,
+        "icon": "mdi:home",
+        "title": "Home",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-home"
+      },
+      {
+        "id": "dashboard_build",
+        "show_in_sidebar": true,
+        "icon": "mdi:information",
+        "title": "Build Info",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "build"
+      }
+    ]
+  }
+}

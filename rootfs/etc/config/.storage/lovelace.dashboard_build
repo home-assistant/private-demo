@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.dashboard_build",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Build Info",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.current_version",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
+                  },
+                  "name": "Current Version"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.docker_hub",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
+                  },
+                  "name": "Last Version"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.build_date",
+                  "name": "Build Date",
+                  "icon": "mdi:calendar-clock",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 2
+                  }
+                }
+              ]
+            }
+          ],
+          "type": "sections",
+          "max_columns": 1,
+          "cards": []
+        }
+      ]
+    }
+  }
+}
