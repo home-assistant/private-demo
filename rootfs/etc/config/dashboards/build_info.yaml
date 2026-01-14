@@ -1,0 +1,12 @@
+title: Build Info
+views:
+  - title: Build Info
+    path: default_view
+    icon: mdi:information
+    cards:
+      - type: entities
+        title: Build Information
+        entities:
+          - entity: sensor.build_date
+            name: Build Date
+            icon: mdi:calendar-clock

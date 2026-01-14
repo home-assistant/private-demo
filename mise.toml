@@ -1,0 +1,34 @@
+
+[env]
+DEFAULT_USERS = '[{"username":"user","password":"password","name":"Test User","owner":true,"admin":true}]'
+TARGET_VERSION = "stable"
+
+[tasks."docker:build"]
+description = "Build the Docker image"
+run = "docker build --no-cache --build-arg TARGET_VERSION=\"${TARGET_VERSION}\" -t marketplace-demo ."
+
+[tasks."docker:build:version"]
+description = "Build with a specific Home Assistant version"
+usage = 'arg "[version]" default="stable"'
+run = "docker build --build-arg TARGET_VERSION={{usage.version}} -t marketplace-demo:{{usage.version}} ."
+
+[tasks."docker:down"]
+description = "Stop and remove the container"
+run = "docker stop marketplace-demo 2>/dev/null || true && docker container rm -f marketplace-demo 2>/dev/null || true"
+
+[tasks."docker:up"]
+description = "Build and run the container"
+depends = ["docker:build", "docker:down"]
+run = "docker run --rm --name marketplace-demo -e DEFAULT_USERS=\"${DEFAULT_USERS}\" -p 8123:8123 marketplace-demo"
+
+[tasks."docker:logs"]
+description = "Follow container logs"
+run = "docker logs -f marketplace-demo"
+
+[tasks."docker:test"]
+description = "Test the Docker image builds successfully"
+run = "docker build -t marketplace-demo:test . && echo 'Build test passed!'"
+
+[tasks."docker:clean"]
+description = "Remove built Docker images"
+run = "docker rmi marketplace-demo marketplace-demo:test 2>/dev/null || true"

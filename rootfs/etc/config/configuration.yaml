@@ -1,7 +1,15 @@
 default_config:
 demo:
+auth_providers:
+  - type: homeassistant
 http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 172.18.0.0/16
     - 172.21.0.0/16
+
+command_line:
+  - sensor:
+      name: Build Date
+      command: "cat /config/build_date.txt"
+      scan_interval: 86400

@@ -1,5 +1,5 @@
 {
-	"name": "home-assistant/private-demo",
+	"name": "home-assistant/marketplace-demo",
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
