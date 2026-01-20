@@ -1,7 +1,5 @@
 default_config:
 demo:
-auth_providers:
-  - type: homeassistant
 http:
   use_x_forwarded_for: true
   trusted_proxies:
