@@ -41,9 +41,7 @@
         "name": "Read Only"
       }
     ],
-    "credentials": [
-      
-    ],
+    "credentials": [],
     "refresh_tokens": [
     ]
   }
