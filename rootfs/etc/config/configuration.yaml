@@ -11,3 +11,5 @@ command_line:
       name: Build Date
       command: "cat /config/build_date.txt"
       scan_interval: 86400
+      
+kitchen_sink:
